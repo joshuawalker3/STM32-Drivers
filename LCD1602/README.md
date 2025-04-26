@@ -125,10 +125,12 @@ CUSTOM_CHAR_08
 
 ## Functions
 ### Function Name
-Lcd_HandleTypeDef* lcd_open(I2C_HandleTypeDef* hi2c, uint16_t addr, Os_Mode mode)
+HAL_StatusTypeDef lcd_open(Lcd_HandleTypeDef* lcd, I2C_HandleTypeDef* hi2c, uint16_t addr, Os_Mode mode)
 ### Function Description
 Initializes the LCD handle
 ### Parameters
+- Lcd_HandleTypeDef* lcd
+    - Struct representing the LCD
 - I2C_HandleTypeDef* hi2c
     -  handle to module that contains the I2C configuration
 - uint16_t addr
@@ -136,7 +138,7 @@ Initializes the LCD handle
 - Os_Mode mode
     - Mode that the LCD will be used in. Must be updated programmatically if conditions change
 ### Return
-- Pointer to handle for LCD
+- HAL_OK on success, HAL_ERROR otherwise
 
 ### Function Name
 HAL_StatusTypeDef lcd_init(Lcd_HandleTypeDef* lcd)

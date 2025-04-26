@@ -107,7 +107,7 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
-  lcd = lcd_open(&hi2c2, LCD_ADDRESS, NO_RTOS);
+  lcd_open(lcd, &hi2c2, LCD_ADDRESS, NO_RTOS);
   lcd_init(lcd);
   lcd_write(lcd, (void*)block, CREATE_CHAR);
   /* USER CODE END 2 */
@@ -142,10 +142,6 @@ int main(void)
 		lcd_write(lcd, (void*)&CUSTOM_CHAR_01, WRITE_CUSTOM);
 
 		HAL_Delay(1000);
-
-		lcd_close(lcd);
-		lcd = lcd_open(&hi2c2, LCD_ADDRESS, NO_RTOS);
-		lcd_init(lcd);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

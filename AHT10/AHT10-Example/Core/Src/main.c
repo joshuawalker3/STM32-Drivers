@@ -96,7 +96,7 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
-  aht10 = aht10_open(&hi2c2, NO_RTOS); //put peripheral on i2c bus
+  aht10_open(aht10, &hi2c2, NO_RTOS); //put peripheral on i2c bus
   aht10_init(aht10, GPIOF, GPIO_PIN_2, METRIC); //initialize peripheral
   /* USER CODE END 2 */
 

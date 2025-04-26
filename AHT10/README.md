@@ -70,16 +70,18 @@ _CONVERT_TO_IMPERIAL(x)
 
 ## Functions
 ### Function Name
-Aht10_HandleTypeDef* aht10_open(I2C_HandleTypeDef* hi2c, Os_Mode mode)
+HAL_StatusTypeDef aht10_open(Aht10_HandleTypeDef* aht10, I2C_HandleTypeDef* hi2c, Os_Mode mode)
 ### Function Description
 Attaches sensor to I2C bus and initializes the AHT10 handle
 ### Parameters
+- Aht10_HandleTypeDef* aht10
+    - Struct representing AHT10 temperature sensor
 - I2C_HandleTypeDef* hi2c
     -  handle to module that contains the I2C configuration
 - Os_Mode mode
     - Mode that the sensor will be used in. Must be updated programmatically if conditions change
 ### Return
-- Pointer to handle for AHT10
+- HAL_OK on success, HAL_ERROR otherwise
 
 ### Function Name
 HAL_StatusTypeDef aht10_init(Aht10_HandleTypeDef* aht10, GPIO_TypeDef* power_pin_port, uint16_t power_pin, Temp_Unit units)
