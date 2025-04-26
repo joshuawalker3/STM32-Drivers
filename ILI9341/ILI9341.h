@@ -12,7 +12,6 @@
 
 #ifndef _DELAY
 	#ifdef CMSIS_OS_H_
-		#include "cmsis_os.h"
 		#define _DELAY(os_mode, x) \
 			if (os_mode == NO_RTOS) { \
 				HAL_Delay(x); \
